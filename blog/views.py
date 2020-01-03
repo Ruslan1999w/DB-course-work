@@ -7,7 +7,7 @@ def index(request):
     return render(request, 'blog/index.html', context)
 
 
-def book(request):
-    post = Book.objects.all()
+def book(request, pk):
+    post = Book.objects.filter(book_id=pk)
     context = {'posts': post}
     return render(request, 'blog/book.html', context)

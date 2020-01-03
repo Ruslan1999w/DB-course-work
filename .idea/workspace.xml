@@ -8,10 +8,10 @@
       <change afterPath="$PROJECT_DIR$/blog/static/img/vechnaya-volya.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog/static/img/vlastelin-kolec.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/blog/static/img/zloi-monarh.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/templates/blog/book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/static/css/things.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/things.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
