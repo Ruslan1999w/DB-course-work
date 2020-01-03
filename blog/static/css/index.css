@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: white;
+}
+.header {
+  display: flexbox;
+  height: 8vh;
+  width: 100%;
+  background-color: #1b2631;
+  color: white;
+  position: fixed;
+}
+.header .content {
+  margin: 0 auto;
+  height: 100%;
+  width: 70%;
+}
+.content {
+  display: flex;
+  align-content: space-between;
+}
+.content .center {
+  height: 100%;
+  width: 25%;
+}
+.content .right {
+  height: 100%;
+  width: 25%;
+}
+.content .left {
+  height: 100%;
+  width: 25%;
+}
+.body {
+  width: 70%;
+  height: auto;
+  display: flex;
+  margin: 0 auto;
+  width: 70%;
+  flex-direction: column;
+}
+.body .books {
+  margin-top: 10%;
+  width: 100%;
+}
+.body img {
+  width: 50%;
+  height: 50%;
+}
+a {
+  text-decoration: none;
+  color: black;
+}

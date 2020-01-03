@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{post.tile}}</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/things.css' %}" />
+</head>
+<body>
+{%for post in posts%}
+      <div class="books"><a href="{% url 'book' %}"><img src="{{post.img}}" /></a> <a href="{% url 'book' %}"><h1>{{post.title}}</h1></a>
+      <p>{{post.description}}</p>
+      </div>
+      {%endfor%}
+</body>
+</html>
