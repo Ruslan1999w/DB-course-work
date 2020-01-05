@@ -1,16 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
 </head>
 <body>
-  <form action="{% url 'registration' }%" method="post">
-      {% csrf_token %}
-        login <input type="login" name="login"><br><br>
-         email <input type="email" name="email"><br><br>
-         pass<input type="password" name="password"><br><br>
-        <input type="submit" name="button">
+   <h1>New post</h1>
+    <form method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
     </form>
 </body>
 </html>

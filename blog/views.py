@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from .models import Book, Users
+from .models import Book, Users, Authors
+from .forms import RegisterForm
+from django.shortcuts import redirect
 
 
 def index(request):
@@ -14,9 +16,15 @@ def book(request, pk):
 
 
 def registration(request):
-    Users.objects.create(
-        login=request.POST['login'],
-        email=request.POST['email'],
-        password=request.POST['password']
-    )
-    return render(request, 'blog/registration.html')
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.login = request.POST['login']
+            post.email = request.POST['email']
+            post.password = request.POST['password']
+            post.save()
+            return redirect('index')
+    else:
+        form = RegisterForm()
+    return render(request, 'blog/registration.html', {'form': form})
