@@ -14,6 +14,8 @@
         <div class="right"></div>
         <div class="left">
           <a href="{% url 'registration' %}"><button>Регистрация</button></a>
+           <a href="{% url 'login' %}"><button>Вход</button></a>
+          {{%for user in users%}}<a href="{% url 'index'%}">{{user.login}} </a>{{%enfor%}}
           </div>
         </div>
       </div>

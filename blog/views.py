@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Book, Users, Authors
-from .forms import RegisterForm
+from .forms import RegisterForm, LogInForm
 from django.shortcuts import redirect
 
 
@@ -23,8 +23,20 @@ def registration(request):
             post.login = request.POST['login']
             post.email = request.POST['email']
             post.password = request.POST['password']
+            post.user_category_id = 1
             post.save()
             return redirect('index')
     else:
         form = RegisterForm()
     return render(request, 'blog/registration.html', {'form': form})
+
+
+def login(request):
+    return render(request, 'blog/login.html')
+
+
+def check(request):
+    if Users.objects.filter(login=request.GET['login'], password=request.GET['password']):
+        return redirect('index')
+    else:
+        return redirect('login')
