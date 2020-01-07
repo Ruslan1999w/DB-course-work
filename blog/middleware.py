@@ -1,10 +1,10 @@
 from datetime import datetime
 from .models import Session
+from django.utils.deprecation import MiddlewareMixin
 
+class AuthenticationMiddleware(MiddlewareMixin):
 
-class CheckSessionMiddleware(classmethod):
-
-    def process_request(request):
+    def process_request(self, request):
         try:
             sessid = request.COOKIE.get('sessid')
             session = Session.objects.get(

@@ -1,18 +1,17 @@
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
-
 from .business_logic import do_login
-from .models import Book, Users, Authors, Session
+from .models import Book, Users, Authors
 from .forms import RegisterForm
 from django.shortcuts import redirect
-from datetime import datetime
-from datetime import timedelta
+from datetime import datetime, timedelta
 
 
 def index(request):
-    context = {'posts': Book.objects.all()
+    context = {'posts': Book.objects.all(),
+               'user': request.user
                }
-    request.COOKIE.get('sessid')
+
     return render(request, 'blog/index.html', context)
 
 
