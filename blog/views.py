@@ -1,11 +1,18 @@
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
-from .models import Book, Users, Authors
-from .forms import RegisterForm, LogInForm
+
+from .business_logic import do_login
+from .models import Book, Users, Authors, Session
+from .forms import RegisterForm
 from django.shortcuts import redirect
+from datetime import datetime
+from datetime import timedelta
 
 
 def index(request):
-    context = {'posts': Book.objects.all()}
+    context = {'posts': Book.objects.all()
+               }
+    request.COOKIE.get('sessid')
     return render(request, 'blog/index.html', context)
 
 
@@ -32,7 +39,23 @@ def registration(request):
 
 
 def login(request):
-    return render(request, 'blog/login.html')
+    error = ''
+    if request.method == 'POST':
+        login = request.POST['login']
+        password = request.POST['password']
+        sessid = do_login(login, password)
+        url = request.POST.get('continue', '/')
+        if sessid:
+            responce = HttpResponseRedirect(url)
+            responce.set_cookie('sessid', sessid,
+                                domain='127.0.0.1',
+                                httponly=True,
+                                expires=datetime.now() + timedelta(days=5)
+                                )
+            return responce
+        else:
+            error = 'Неверный логин / пароль'
+    return render(request, 'blog/login.html', {'error': error})
 
 
 def check(request):
@@ -40,3 +63,15 @@ def check(request):
         return redirect('index')
     else:
         return redirect('login')
+
+
+def cabinet(request):
+    request.session['sessionid'] = 'mart'
+    first_session = request.session['sessionid']
+    num_visits = request.session.get('num_visits', 0)
+    request.session['num_visits'] = num_visits + 1
+    context = {
+        'first_session': first_session,
+        'num_visits': num_visits
+    }
+    return render(request, 'blog/cabinet.html', context)

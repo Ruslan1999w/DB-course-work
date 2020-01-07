@@ -2,7 +2,7 @@
 {% load static %}
 <html lang="en">
   <head>
-    <title>{{post.title}}</title>
+    <title>Ranobe & manga</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <link rel="stylesheet" href="{% static 'css/things.css' %}" />
@@ -20,10 +20,13 @@
         </div>
       </div>
     </div>
-{%for post in posts%}
-      <div class="books"><img src="{{post.img}}" /><h1>{{post.title}}</h1>
-      <p>{{post.description}}</p>
-      </div>
-      {%endfor%}
+ <div class="body">
+        <div class="books"><h1>{{user.login}}</h1><br>
+        <p>{{user.email}}</p><br>
+        <p>{{user.password}}</p><br>
+        <p>{{first_session}}</p>
+        <p>{{num_visits}}</p>
+            </div>
+ </div>
 </body>
 </html>

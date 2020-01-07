@@ -6,10 +6,11 @@
 </head>
 <body>
 
-    <form action="check/" method="get">
+    <form method="POST">{% csrf_token %}
         login <input type="login" name="login"><br><br>
          pass<input type="password" name="password"><br><br>
         <input type="submit" value="check">
     </form>
+    {{error}}
 </body>
 </html>

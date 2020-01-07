@@ -204,3 +204,10 @@ class Users(models.Model):
     class Meta:
         managed = False
         db_table = 'users'
+
+class Session(models.Model):
+    session_id = models.AutoField(primary_key=True)
+    key = models.CharField(max_length=100, unique=True)
+    users =  models.ForeignKey(Users, models.DO_NOTHING)
+    expires = models.DateTimeField()
+
