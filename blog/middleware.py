@@ -6,13 +6,13 @@ class AuthenticationMiddleware(MiddlewareMixin):
 
     def process_request(self, request):
         try:
-            sessid = request.COOKIE.get('sessid')
+            sessid = request.COOKIES['sessid']
             session = Session.objects.get(
                 key=sessid,
                 expires__gt=datetime.now(),
             )
             request.session = session
-            request.user = session.user
+            request.user = session.users_id
         except Session.DoesNotExist:
             request.session = None
             request.user = None

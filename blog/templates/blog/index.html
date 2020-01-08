@@ -14,8 +14,11 @@
         <div class="right"></div>
         <div class="left">
           <a href="{% url 'registration' %}"><button>Регистрация</button></a>
+         {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
+         <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
+          {% else %}
            <a href="{% url 'login' %}"><button>Вход</button></a>
-         <a href="{% url 'cabinet'%}"><h1>{{user}}</h1> </a>
+          {% endif %}
           </div>
         </div>
       </div>

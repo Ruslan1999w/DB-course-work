@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f76c1f93-3b4f-4421-bf9c-3386f059cbad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/business_logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/business_logic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/middleware.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/cabinet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,13 +91,13 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="590" y="216" width="800" height="684" key="#Inspections/70.27.1850.1053@70.27.1850.1053" timestamp="1578397962593" />
-    <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1578399436645">
+    <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1578494960544">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1578399436645" />
-    <state x="651" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578385324317">
+    <state x="778" y="311" width="424" height="491" key="FileChooserDialogImpl/70.27.1850.1053@70.27.1850.1053" timestamp="1578494960544" />
+    <state x="651" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578492911801">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="651" y="381" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1578385324317" />
+    <state x="651" y="381" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1578492911801" />
   </component>
 </project>

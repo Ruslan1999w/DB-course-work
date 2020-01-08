@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .business_logic import do_login
-from .models import Book, Users, Authors
+from .business_logic import *
+from .models import Book, Users, Authors, Session
 from .forms import RegisterForm
 from django.shortcuts import redirect
 from datetime import datetime, timedelta
@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 def index(request):
     context = {'posts': Book.objects.all(),
-               'user': request.user
+               'user': get_user_session(request)
                }
 
     return render(request, 'blog/index.html', context)
@@ -17,7 +17,8 @@ def index(request):
 
 def book(request, pk):
     post = Book.objects.filter(book_id=pk)
-    context = {'posts': post}
+    context = {'posts': post,
+               'user': get_user_session(request)}
     return render(request, 'blog/book.html', context)
 
 
@@ -57,20 +58,19 @@ def login(request):
     return render(request, 'blog/login.html', {'error': error})
 
 
-def check(request):
-    if Users.objects.filter(login=request.GET['login'], password=request.GET['password']):
-        return redirect('index')
-    else:
-        return redirect('login')
-
-
 def cabinet(request):
-    request.session['sessionid'] = 'mart'
-    first_session = request.session['sessionid']
     num_visits = request.session.get('num_visits', 0)
     request.session['num_visits'] = num_visits + 1
     context = {
-        'first_session': first_session,
-        'num_visits': num_visits
+        'num_visits': num_visits,
+        'user': get_user_session(request)
     }
     return render(request, 'blog/cabinet.html', context)
+
+
+def logout(request):
+    sessid = request.COOKIES['sessid']
+    if sessid is not None:
+        session = Session.objects.get(key=sessid)
+        session.delete()
+    return redirect('index')

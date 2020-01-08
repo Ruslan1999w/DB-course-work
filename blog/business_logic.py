@@ -22,3 +22,14 @@ def do_login(login, password):
 def generate_long_random_key(stringLength):
     lettersAndDigits = string.ascii_letters + string.digits
     return ''.join(random.choice(lettersAndDigits) for i in range(stringLength))
+
+
+def get_user_session(request):
+    try:
+        session = Session.objects.get(key=request.COOKIES['sessid'])
+        user = Users.objects.get(user_id=session.users_id)
+    except Session.DoesNotExist:
+        return None
+    except Users.DoesNotExist:
+        return None
+    return user
