@@ -10,19 +10,24 @@
   <body>
     <div class="header">
       <div class="content">
-        <div class="center"></div>
-        <div class="right"></div>
-        <div class="left">
-          <a href="{% url 'registration' %}"><button>Регистрация</button></a>
-         {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
+        <div class="center"> {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
          <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
           {% else %}
            <a href="{% url 'login' %}"><button>Вход</button></a>
-          {% endif %}
+           <a href="{% url 'registration' %}"><button>Регистрация</button></a>
+          {% endif %}</div>
+        <div class="right"></div>
+        <div class="left">
+
+     <form method="POST">{% csrf_token %}
+
+        <button type="submit">Save</button>
+    </form>
+
           </div>
         </div>
       </div>
-    </div>
+  </div>
     <div class="body">
       {%for post in posts%}
       <div class="books"><a href="{% url 'book' pk=post.pk %}"><img src="{{post.img}}" /></a> <a href="{% url 'book' pk=post.pk %}"><h1>{{post.title}}</h1></a>

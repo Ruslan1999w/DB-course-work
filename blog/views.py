@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from .business_logic import *
-from .models import Book, Users, Authors, Session
+from .models import Book, Users, Authors, Session, Comment, BookAndAuthors
 from .forms import RegisterForm
 from django.shortcuts import redirect
 from datetime import datetime, timedelta
@@ -16,9 +16,21 @@ def index(request):
 
 
 def book(request, pk):
-    post = Book.objects.filter(book_id=pk)
+    post = Book.objects.get(book_id=pk)
+    comments = Comment.objects.filter(book_id=pk)
+    # author = comments.objects.filter(user_id__password='06102017')
     context = {'posts': post,
-               'user': get_user_session(request)}
+               'user': get_user_session(request),
+               'comments': comments,
+               # 'author': author
+               }
+    if request.method == 'POST':
+        Comment.objects.create(
+            user=get_user_session(request),
+            publish_date=datetime.now(),
+            text=request.POST['text'],
+            book=Book.objects.get(book_id=pk)
+        )
     return render(request, 'blog/book.html', context)
 
 

@@ -83,6 +83,17 @@ class Authors(models.Model):
         db_table = 'authors'
 
 
+class Session(models.Model):
+    session_id = models.AutoField(primary_key=True)
+    key = models.CharField(unique=True, max_length=100)
+    expires = models.DateTimeField()
+    users = models.ForeignKey('Users', models.DO_NOTHING)
+
+    class Meta:
+        managed = False
+        db_table = 'blog_session'
+
+
 class Book(models.Model):
     book_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=50)
@@ -200,14 +211,8 @@ class Users(models.Model):
     login = models.CharField(max_length=32)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=20)
+    user_icon = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = 'users'
-
-class Session(models.Model):
-    session_id = models.AutoField(primary_key=True)
-    key = models.CharField(max_length=100, unique=True)
-    users =  models.ForeignKey(Users, models.DO_NOTHING)
-    expires = models.DateTimeField()
-

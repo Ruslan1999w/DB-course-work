@@ -10,23 +10,42 @@
 <body>
 <div class="header">
       <div class="content">
-        <div class="center"></div>
+        <div class="center">  {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
+          <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
+           {% else %}
+            <a href="{% url 'login' %}"><button>Вход</button></a>
+            <a href="{% url 'registration' %}"><button>Регистрация</button></a>
+           {% endif %}</div>
         <div class="right"></div>
         <div class="left">
-          <a href="{% url 'registration' %}"><button>Регистрация</button></a>
-         {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
-         <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
-          {% else %}
-           <a href="{% url 'login' %}"><button>Вход</button></a>
-          {% endif %}
           </div>
         </div>
       </div>
-    </div>
-{%for post in posts%}
-      <div class="books"><img src="{{post.img}}" /><h1>{{post.title}}</h1>
-      <p>{{post.description}}</p>
+  </div>
+
+<div class="body">
+      <div class="book">
+        <img src="{{posts.img}}" />
+          <h1>{{posts.title}}</h1>
+          <p>{{posts.description}}</p>
       </div>
-      {%endfor%}
+
+    <div class="comments">
+        {% for comment in comments %}
+        <div class="comment_content">
+        <img src="{{comment.user.user_icon}}" style="height:50px; width:35px">
+        <h3>{{comment.user.login}}</h3>
+        <h4>{{comment.publish_date}}</h4>
+        <p>{{comment.text}}</p>
+        </div>
+        {% endfor %}
+        {% if user %}
+         <form method="POST">{% csrf_token %}
+        <input type="text" name="text"><br><br>
+        <input type="submit" value="ok">
+        </form>
+        {% endif %}
+    </div>
+</div>
 </body>
 </html>

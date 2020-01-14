@@ -14,7 +14,7 @@ body {
   position: fixed;
 }
 .header h1 {
-    color:white;
+  color: white;
 }
 .header .content {
   margin: 0 auto;
@@ -39,10 +39,9 @@ body {
 }
 .body {
   width: 70%;
-  height: auto;
+  height: 200vh;
   display: flex;
   margin: 0 auto;
-  width: 70%;
   flex-direction: column;
 }
 .body .books {
@@ -55,5 +54,20 @@ body {
 }
 a {
   text-decoration: none;
+  color: black;
+}
+.body .comments {
+  margin-top: 0;
+}
+.body .comments .comment_content {
+  margin-top: 50px;
+}
+.book {
+  margin-top: 10%;
+  height: 40%;
+}
+.comments button {
+  width: 150px;
+  height: 40px;
   color: black;
 }
