@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Админ панель</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/things.css' %}" />
+
+  </head>
+<body>
+{% for data in datas%}
+    <pre> Название книги:                   {{data.0}}
+        Количество проданных книг:        {{data.1}}
+        Общая сумма выручки:              {{data.2}}</pre>
+{%endfor%}
+<button onclick = data_analysis("{% url 'editor_result' %}","some,text")>click</button>
+ <script type="text/javascript" src="{% static 'js/index.js' %}">  </script>
+</body>
+</html>

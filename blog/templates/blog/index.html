@@ -6,16 +6,24 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <link rel="stylesheet" href="{% static 'css/things.css' %}" />
+   
   </head>
   <body>
+
     <div class="header">
       <div class="content">
-        <div class="center"> {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
+        <div class="center"> {% if user.user_category_id == 1 %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
          <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
-          {% else %}
+                             {% else %}
            <a href="{% url 'login' %}"><button>Вход</button></a>
            <a href="{% url 'registration' %}"><button>Регистрация</button></a>
-          {% endif %}</div>
+                            {% endif %}
+             {% if user.user_category_id == 2 %}
+             <a href="{% url 'logout' %}"><button>Выход</button></a>
+             <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
+            <a href="{% url 'editor' %}" style="background-color: red;"><h1>Админ панель</h1></a>
+            {% endif %}
+        </div>
         <div class="right"></div>
         <div class="left">
 
@@ -35,5 +43,7 @@
       </div>
       {%endfor%}
     </div>
+  <script type="text/javascript" src="{% static 'js/index.js' %}">  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </body>
 </html>

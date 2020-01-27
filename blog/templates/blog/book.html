@@ -27,6 +27,9 @@
       <div class="book">
         <img src="{{posts.img}}" />
           <h1>{{posts.title}}</h1>
+           {% for rate in rates %}
+          <h2>Оценка {{rate.rate}}</h2>
+          {% endfor %}
           <p>{{posts.description}}</p>
       </div>
 
@@ -41,7 +44,7 @@
         {% endfor %}
         {% if user %}
          <form method="POST">{% csrf_token %}
-        <input type="text" name="text"><br><br>
+        <input type="text" name="comment"><br><br>
         <input type="submit" value="ok">
         </form>
         {% endif %}
