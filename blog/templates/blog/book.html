@@ -4,51 +4,86 @@
   <head>
     <title>{{post.title}}</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/book.css' %}" />
     <link rel="stylesheet" href="{% static 'css/things.css' %}" />
   </head>
-<body>
-<div class="header">
-      <div class="content">
-        <div class="center">  {% if user %}  <a href="{% url 'logout' %}"><button>Выход</button></a>
-          <a href="{% url 'cabinet'%}"><h1>{{user.email}}</h1> </a>
-           {% else %}
-            <a href="{% url 'login' %}"><button>Вход</button></a>
-            <a href="{% url 'registration' %}"><button>Регистрация</button></a>
-           {% endif %}</div>
-        <div class="right"></div>
-        <div class="left">
-          </div>
+  <body>
+    <div class="header">
+      {% if user.user_category_id == 1 %}
+      <div class="center">
+        <a href="{% url 'logout' %}"><button>Выход</button></a>
+      </div>
+      <div class="center">
+        <a href="{% url 'cabinet'%}"><h1>{{user.login}}</h1> </a>
+      </div>
+
+      {% endif %} {% if user.user_category_id == 2 %}
+      <div class="center">
+        <a href="{% url 'logout' %}"><button>Выход</button></a>
+      </div>
+      <div class="center">
+        <a href="{% url 'cabinet'%}"><h1>{{user.login}}</h1> </a>
+      </div>
+      <div class="center">
+        <a href="{% url 'editor' %}" style="background-color: red;"
+          ><h1>Админ панель</h1></a
+        >
+      </div>
+      {% endif %} {% if user == 3 %}
+      <div class="center">
+        <a href="{% url 'login' %}"><button>Вход</button></a>
+      </div>
+      <div class="center">
+        <a href="{% url 'registration' %}"><button>Регистрация</button></a>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="body">
+      <div class="books">
+        <div class="title">
+          <img src="{{posts.img}}" />
+          <h1>{{posts.title}}</h1>
+          {% for rate in rates %}
+          <h2>Оценка {{rate.rate}}</h2>
+          <button id="baton" onclick="add_to_basket( 'test_view' )">Добавить в корзину</button>
+          {% endfor %}
+        </div>
+        <div class="desc">
+          <p>{{posts.description}}</p>
         </div>
       </div>
-  </div>
 
-<div class="body">
-      <div class="book">
-        <img src="{{posts.img}}" />
-          <h1>{{posts.title}}</h1>
-           {% for rate in rates %}
-          <h2>Оценка {{rate.rate}}</h2>
-          {% endfor %}
-          <p>{{posts.description}}</p>
-      </div>
-
-    <div class="comments">
+      <div class="comments">
         {% for comment in comments %}
         <div class="comment_content">
-        <img src="{{comment.user.user_icon}}" style="height:50px; width:35px">
-        <h3>{{comment.user.login}}</h3>
-        <h4>{{comment.publish_date}}</h4>
-        <p>{{comment.text}}</p>
+          <div class="title">
+          <img
+            src="{{comment.user.user_icon}}"
+            style="height:70px; width:45px"
+          /></div>
+          <div class="desc">
+          <h3>{{comment.user.login}}</h3>
+          <h4>{{comment.publish_date}}</h4>
         </div>
-        {% endfor %}
-        {% if user %}
-         <form method="POST">{% csrf_token %}
-        <input type="text" name="comment"><br><br>
-        <input type="submit" value="ok">
+         <div class="text"><p>{{comment.text}}</p></div>
+        </div>
+
+        {% endfor %} {% if user.user_category_id == 1 %}
+        <form method="POST">
+          {% csrf_token %} <input type="text" name="comment" /><br /><br />
+          <input type="submit" value="ok" />
+        </form>
+        {% endif %} {% if user.user_category_id == 2 %}
+        <form method="POST">
+          {% csrf_token %} <input type="text" name="comment" /><br /><br />
+          <input type="submit" id="but" value="отправить" />
         </form>
         {% endif %}
+      </div>
     </div>
-</div>
-</body>
+    {% csrf_token %}
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-3.4.1.js' %}"></script>
+  </body>
 </html>

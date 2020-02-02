@@ -3,11 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="f76c1f93-3b4f-4421-bf9c-3386f059cbad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/business_logic.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/business_logic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/css/things.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/css/things.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/blog/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/admin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/book.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/cabinet.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/cabinet.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/registration.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
     </list>
@@ -101,10 +107,10 @@
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
     <state x="484" y="188" width="1022" height="737" key="SettingsEditor/70.27.1850.1053@70.27.1850.1053" timestamp="1578999201389" />
-    <state x="651" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1580154439696">
+    <state x="651" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1580675009718">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>
-    <state x="651" y="381" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1580154439696" />
+    <state x="651" y="381" key="com.intellij.ide.util.TipDialog/70.27.1850.1053@70.27.1850.1053" timestamp="1580675009718" />
     <state x="658" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1580121518578">
       <screen x="70" y="27" width="1850" height="1053" />
     </state>

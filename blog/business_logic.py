@@ -29,7 +29,9 @@ def get_user_session(request):
         session = BlogSession.objects.get(key=request.COOKIES['sessid'])
         user = Users.objects.get(user_id=session.users_id)
     except BlogSession.DoesNotExist:
-        return None
+        return 3
     except Users.DoesNotExist:
-        return None
+        return 3
+    except KeyError:
+        return 3
     return user

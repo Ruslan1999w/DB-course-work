@@ -1,20 +1,83 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-<head>
+  <head>
     <title>Админ панель</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="{% static 'css/index.css' %}" />
     <link rel="stylesheet" href="{% static 'css/things.css' %}" />
-
   </head>
-<body>
-{% for data in datas%}
-    <pre> Название книги:                   {{data.0}}
+  <body>
+    <div class="header">
+      {% if user.user_category_id == 1 %}
+      <div class="center">
+        <a href="{% url 'logout' %}"><button>Выход</button></a>
+      </div>
+      <div class="center">
+        <a href="{% url 'cabinet'%}"><h1>{{user.login}}</h1> </a>
+      </div>
+
+      {% endif %} {% if user.user_category_id == 2 %}
+      <div class="center">
+        <a href="{% url 'logout' %}"><button>Выход</button></a>
+      </div>
+      <div class="center">
+        <a href="{% url 'cabinet'%}"><h1>{{user.login}}</h1> </a>
+      </div>
+      <div class="center">
+        <a href="{% url 'editor' %}" style="background-color: red;"
+          ><h1>Админ панель</h1></a
+        >
+      </div>
+      {% endif %} {% if user == 3 %}
+      <div class="center">
+        <a href="{% url 'login' %}"><button>Вход</button></a>
+      </div>
+      <div class="center">
+        <a href="{% url 'registration' %}"><button>Регистрация</button></a>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="content">
+
+    <h3>Анализ рентабельности книг за период времени:</h3>
+      {% for data in datas%}
+      <pre>
+        Название книги:                          {{data.0}}
         Количество проданных книг:        {{data.1}}
-        Общая сумма выручки:              {{data.2}}</pre>
-{%endfor%}
-<button onclick = data_analysis("{% url 'editor_result' %}","some,text")>click</button>
- <script type="text/javascript" src="{% static 'js/index.js' %}">  </script>
-</body>
+        Общая сумма выручки:              {{data.2}}</pre
+      >
+      {%endfor%}
+<!--<pre>
+
+
+</pre>
+         <h3>Анализ покупательской активности клиентов:</h3>
+       {% for meta in metas%}
+      <pre>
+        Пользователь:                     {{meta.0}}
+        Количество купленных книг:        {{meta.1}}
+      </pre
+      >
+      {%endfor%}
+      -->
+        <pre>
+
+
+        </pre>
+        <h3>Анализ популярности книги</h3>
+        {% for peta in petas%}
+      <pre>
+        Название книги:                    {{peta.0}}
+        Количество проданных копий:        {{peta.1}}
+        Описание книги:                    {{peta.2}}
+        Дата публикации:                   {{peta.3}}
+        Цена:                              {{peta.4}}
+      </pre
+      >
+         {%endfor%}
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  </body>
 </html>
+<!-- -->

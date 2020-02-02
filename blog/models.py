@@ -121,8 +121,8 @@ class BookAndAuthors(models.Model):
 class BuyedBook(models.Model):
     buyed_book_id = models.AutoField(primary_key=True)
     book = models.ForeignKey(Book, models.DO_NOTHING, blank=True, null=True)
-    user_id = models.IntegerField(blank=True, null=True)
     date = models.DateTimeField(blank=True, null=True)
+    user = models.ForeignKey('Users', models.DO_NOTHING, blank=True, null=True)
 
     class Meta:
         managed = False
@@ -208,7 +208,6 @@ class UserCategory(models.Model):
 class Users(models.Model):
     user_id = models.AutoField(primary_key=True)
     user_category = models.ForeignKey(UserCategory, models.DO_NOTHING)
-    buyed_book = models.ForeignKey(BuyedBook, models.DO_NOTHING, blank=True, null=True)
     login = models.CharField(max_length=32)
     email = models.CharField(max_length=50)
     password = models.CharField(max_length=20)

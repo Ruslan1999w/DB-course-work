@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('editor', views.editor, name='editor'),
     path('editor/result', views.editor_result, name='editor_result'),
+    path('book/<int:pk>/test_view', views.test_view, name='test_view'),
 ]
